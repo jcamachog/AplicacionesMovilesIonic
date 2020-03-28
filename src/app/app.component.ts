@@ -16,6 +16,11 @@ export class AppComponent implements OnInit {
       title: 'Hola Mundo',
       url: '/folder/Inbox',
       icon: 'earth'
+    },
+    {
+      title: 'Contactos',
+      url: '/contacts/List',
+      icon: 'people'
     }
   ];
   
