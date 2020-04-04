@@ -21,6 +21,11 @@ export class AppComponent implements OnInit {
       title: 'Contactos',
       url: '/contacts/List',
       icon: 'people'
+    },
+    {
+      title: 'Sensores',
+      url: '/sensors/types',
+      icon: 'location'
     }
   ];
   
