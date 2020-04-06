@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AcelerometerPage implements OnInit {
 
+  public axis_x:String;
+  public axis_y:String;
+  public axis_z:String;
   public tittle:String;
   public urlBackward:String;
 
@@ -17,4 +20,11 @@ export class AcelerometerPage implements OnInit {
     this.urlBackward = "/sensors/types";
   }
 
+  iniciar() {
+    
+  }
+
+  detener() {
+    //this.subscription.unsubscribe();
+  }
 }
