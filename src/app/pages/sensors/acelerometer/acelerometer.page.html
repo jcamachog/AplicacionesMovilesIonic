@@ -24,8 +24,8 @@
       <ion-label>{{axis_z}}</ion-label>
     </ion-item>
     <ion-item lines="none">
-      <ion-button color="secondary" size="default" (click)="iniciar()">INICIAR</ion-button>
-      <ion-button color="secondary" size="default" (click)="detener()">DETENER</ion-button>
+      <ion-button color="secondary" size="default" (click)="iniciar()" [disabled]="state">INICIAR</ion-button>
+      <ion-button color="secondary" size="default" (click)="detener()" [disabled]="!state">DETENER</ion-button>
     </ion-item>
   </ion-list>
 </ion-content>
