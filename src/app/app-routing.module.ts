@@ -14,7 +14,20 @@ const routes: Routes = [
   {
     path: 'contacts/:id',
     loadChildren: () => import('./pages/contacts/contacts.module').then( m => m.ContactsPageModule)
+  },
+  {
+    path: 'sensors/:id',
+    loadChildren: () => import('./pages/sensors/sensors.module').then( m => m.SensorsPageModule)
+  },
+  {
+    path: 'sensors/types/gps',
+    loadChildren: () => import('./pages/sensors/gps/gps.module').then( m => m.GpsPageModule)
+  },
+  {
+    path: 'sensors/types/acelerometer',
+    loadChildren: () => import('./pages/sensors/acelerometer/acelerometer.module').then( m => m.AcelerometerPageModule)
   }
+
 ];
 
 @NgModule({

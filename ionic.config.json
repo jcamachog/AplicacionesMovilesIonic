@@ -1,5 +1,7 @@
 {
   "name": "AplicacionesMovilesIonic",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

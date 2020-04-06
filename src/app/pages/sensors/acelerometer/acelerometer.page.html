@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button routerDirection="root" [routerLink]="urlBackward">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{tittle}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>Eje X:</ion-label>
+      <ion-label>{{axis_x}}</ion-label>
+    </ion-item>
+     <ion-item>
+      <ion-label>Eje Y:</ion-label>
+      <ion-label>{{axis_y}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Eje Z:</ion-label>
+      <ion-label>{{axis_z}}</ion-label>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-button color="secondary" size="default" (click)="iniciar()" [disabled]="state">INICIAR</ion-button>
+      <ion-button color="secondary" size="default" (click)="detener()" [disabled]="!state">DETENER</ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
