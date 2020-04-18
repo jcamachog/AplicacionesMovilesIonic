@@ -26,7 +26,16 @@ const routes: Routes = [
   {
     path: 'sensors/types/acelerometer',
     loadChildren: () => import('./pages/sensors/acelerometer/acelerometer.module').then( m => m.AcelerometerPageModule)
+  },
+  {
+    path: 'scores/:id',
+    loadChildren: () => import('./pages/scores/scores.module').then( m => m.ScoresPageModule)
+  },
+  {
+    path: 'welcome/:id',
+    loadChildren: () => import('./pages/welcome/welcome.module').then( m => m.WelcomePageModule)
   }
+
 
 ];
 

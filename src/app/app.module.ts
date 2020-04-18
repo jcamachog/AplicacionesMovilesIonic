@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { DeviceMotion } from '@ionic-native/device-motion/ngx';
 
+import { SQLite } from '@ionic-native/sqlite/ngx';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -22,6 +24,7 @@ import { DeviceMotion } from '@ionic-native/device-motion/ngx';
     HttpClientModule
   ],
   providers: [
+    SQLite,
     Geolocation,
     StatusBar,
     SplashScreen,
