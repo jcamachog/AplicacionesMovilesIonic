@@ -8,5 +8,12 @@
 </ion-header>
 
 <ion-content>
-
+    <ion-list>
+        <app-scores-list></app-scores-list>
+        <ion-item lines="none">
+            <ion-button slot="end" shape="round" color="secondary" (click)="presentAlertPrompt()">
+                <ion-icon name="add"></ion-icon>
+            </ion-button>
+        </ion-item>
+    </ion-list>
 </ion-content>

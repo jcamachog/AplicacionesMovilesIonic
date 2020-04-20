@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { ScoresPageRoutingModule } from './scores-routing.module';
 
 import { ScoresPage } from './scores.page';
+import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ScoresPageRoutingModule
+    ScoresPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [ScoresPage]
 })

@@ -1,0 +1,13 @@
+<ion-list class="scores-list">
+    <ion-item *ngFor="let score of scores">
+        <ion-icon slot="start" md="medal-outline"></ion-icon>
+        <ion-list lines="none">
+            <ion-label color="primary">{{score.week}}</ion-label>
+            <ion-label color="secondary">{{score.activity}}</ion-label>
+            <ion-label color="danger">{{score.scoreiam}}</ion-label>
+        </ion-list>
+        <ion-button color="danger" slot="end">
+            <ion-icon name="trash"></ion-icon>
+        </ion-button>
+    </ion-item>
+</ion-list>
