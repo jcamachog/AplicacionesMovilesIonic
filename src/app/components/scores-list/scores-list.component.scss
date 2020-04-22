@@ -1,4 +1,8 @@
 .scores-list {
-    max-height: 90%;
+    height: 520px;
     overflow-y: scroll;
+}
+
+.scores-empty-list {
+    height: 520px;
 }

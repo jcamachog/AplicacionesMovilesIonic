@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Platform } from '@ionic/angular';
+import { Platform, AlertController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
@@ -42,7 +42,8 @@ export class AppComponent implements OnInit {
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private alertController:AlertController,
   ) {
     this.initializeApp();
   }
@@ -59,5 +60,26 @@ export class AppComponent implements OnInit {
     if (path !== undefined) {
       this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
     }
+  }
+
+  async exitApp() {
+
+    const alert = await this.alertController.create({
+      header: '¿Confirme que desea salir de la aplicación?',
+      subHeader: 'Esto cerrara la aplicación',
+      //message: 'This is an alert message.',
+      buttons: [
+        { 
+          text:'CANCELAR' 
+        },
+        { text:'ACEPTAR',
+          handler: () => {
+            navigator['app'].exitApp();
+          }
+        }
+      ]
+    });
+    
+    await alert.present();
   }
 }

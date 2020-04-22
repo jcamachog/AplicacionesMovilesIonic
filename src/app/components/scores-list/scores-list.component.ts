@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ScoresService } from '../../services/scores.service';
+import { Score } from '../../models/Score';
 
 @Component({
   selector: 'app-scores-list',
@@ -9,8 +11,32 @@ export class ScoresListComponent implements OnInit {
 
   public scores = [];
 
-  constructor() { }
+  constructor(private scoresService:ScoresService) {
+    this.scoresService.getDBState().subscribe(
+      r => {
+          if(r) {
 
-  ngOnInit() {}
+          }else{
+
+          }
+    });
+   }
+
+    getScoresList() {
+      this.scoresService.getScores().then(
+        r => {
+          this.scores = r;
+        }
+      );
+    }
+
+    deleteScore(score:Score){
+      this.scoresService.deleteScore(score.id);
+      this.getScoresList();
+    }
+
+    ngOnInit() {
+      this.getScoresList();
+    }
 
 }

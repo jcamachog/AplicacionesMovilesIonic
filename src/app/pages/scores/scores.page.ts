@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AlertController } from '@ionic/angular';
+import { ScoresService } from '../../services/scores.service';
+import { Score } from 'src/app/models/score';
+import { ScoresListComponent } from 'src/app/components/scores-list/scores-list.component';
 
 @Component({
   selector: 'app-scores',
@@ -9,14 +12,15 @@ import { AlertController } from '@ionic/angular';
 export class ScoresPage implements OnInit {
 
   public scores:string;
+  @ViewChild(ScoresListComponent, {static : false}) scoresListComponent : ScoresListComponent;
 
-  constructor(public alertController: AlertController) { }
+  constructor(public alertController: AlertController, private scoresService:ScoresService) { }
 
   ngOnInit() {
     this.scores = "Mis Calificaciones";
   }
 
-  public async presentAlertPrompt() {
+  public async addNewScore() {
     const alert = await this.alertController.create({
       header: 'Agregar una calificación',
       inputs: [
@@ -47,12 +51,20 @@ export class ScoresPage implements OnInit {
           role: 'cancel',
           cssClass: 'secondary',
           handler: () => {
-            console.log('Confirm Cancel');
+            //console.log('Confirm Cancel');
           }
         }, {
           text: 'Guardar',
-          handler: () => {
+          handler: data => {
             console.log('Confirm Ok');
+
+            let score = new Score;
+            score.week = data.week;
+            score.activity = data.activity;
+            score.score = data.score;
+
+            this.scoresService.addScore(score);
+            this.scoresListComponent.getScoresList();
           }
         }
       ]
